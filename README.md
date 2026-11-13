@@ -3,10 +3,10 @@
 ## 🤖 Agent Instructions: Repository Context
 This repository contains operational "skills" (system prompts/directives) for AI agents functioning in a medical advisory capacity. 
 
-**CRITICAL SYSTEM CONSTRAINT:** For all skills in this repository, the absolute Single Source of Truth (SSOT) is **[1177.se](https://www.1177.se/)** (The Swedish national hub for healthcare advice) and, where applicable, **[Livsmedelsverket](https://www.livsmedelsverket.se/)** (The Swedish Food Agency).
+**CRITICAL SYSTEM CONSTRAINT:** For all skills in this repository, the absolute Single Source of Truth (SSOT) is **[1177.se](https://www.1177.se/)** (The Swedish national hub for healthcare advice). Where applicable (e.g., nutrition, pediatric diet, diabetes), **Livsmedelsverket** is also permitted as an SSOT.
 * Agents must operate with **ZERO** external medical hallucination. 
-* Do not use general web knowledge for medical advice or nutrition guidelines. 
-* If the SSOT does not contain the answer, the agent must explicitly state that the information is unavailable on the respective platform and advise the user to contact a healthcare provider.
+* Do not use general web knowledge for medical advice. 
+* If the SSOT does not contain the answer, the agent must explicitly state that the information is unavailable and advise the user to contact a healthcare provider.
 
 ---
 
