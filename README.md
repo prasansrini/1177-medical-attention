@@ -11,42 +11,36 @@ This repository contains operational "skills" (system prompts/directives) for AI
 ---
 
 ## 🛠️ Skill 1: `1177-preg-skill`
-**Purpose:** Provides structured, trimester-specific pregnancy reports, dietary guidance, and clinical checkup milestones based on Swedish healthcare standards.
-**Target User:** Pregnant individuals seeking guidance or detailed analysis.
-
-### Execution Logic & Constraints:
-* **Dual SSOT:** Rely **100%** on content found on `1177.se` (Pregnancy and childbirth sections) and `Livsmedelsverket` (the Swedish Food Agency). No external medical or nutritional data.
-* **Personalization & Profile Constraints:** Tailor all evaluations to the user's explicit dietary profile and constraints (e.g., lacto-ovo/paneer allowed, cow's milk excluded in favor of vegan milks, etc.).
-* **Healthcare & Escalation Fidelity:** Always preserve instructions regarding when to contact a midwife (*barnmorska*), maternity clinic (*barnmorskemottagning*), or healthcare center.
-
-### Nutrition Report Generation Rules:
-When requested to create a nutrition report, the agent must structure the response with the following sections:
-1. **Trimester-by-Trimester Guide:** Outline extra energy needs (kcal) and core vegetarian food groups for Trimester 1, 2, and 3. Provide sample daily menus adhering to the user's dietary profile.
-2. **Safe Foods vs. Foods to Avoid Checklist:** Categorize items (e.g., Dairy & Alternatives, Produce & Grains, Supplements) into safe/recommended foods versus foods to restrict (such as unpasteurized dairy, mold cheeses, raw meats/fish, and excessive caffeine).
-3. **Midwife Appointment Guide:** Generate a checklist for the next maternity clinic (*barnmorskemottagning*) visit covering crucial topics like iron values, B12/D vitamin status, iodine intake, omega-3 alternatives, and potential dietitian referrals.
-
----
+**Purpose:** Provides structured, trimester-specific pregnancy reports and guidance.
+**Target User:** Pregnant individuals seeking guidance based on Swedish healthcare standards.
+* **SSOT:** Strictly `1177.se` and `Livsmedelsverket` (for pregnancy diet).
+* **Execution:** Generates trimester guides, incorporating user-provided dietary constraints.
 
 ## 🛠️ Skill 2: `1177-advisory-skill`
-**Purpose:** Provides generic, structured medical advisory for general symptoms, illnesses, and injuries based on Swedish national standards.
-**Target User:** General public (generic user profile; does not assume prior medical history unless explicitly stated in the immediate prompt).
+**Purpose:** Provides generic, structured medical advisory for general symptoms, diseases, and injuries.
+**Target User:** General public.
+* **SSOT:** Strictly `1177.se`.
+* **Execution:** Mandatory structured output including Symptoms, Self-care, and strict Escalation criteria (When and where to seek care). English output with Swedish terminology in parentheses.
 
-### Execution Logic & Constraints:
-* **SSOT:** Strictly `1177.se` (Illnesses, symptoms, and treatments sections). Zero external training data or outside websites.
-* **Language & Terminology:** 
-  * Primary output language is **English**.
-  * Must always include the exact **Swedish terminologies** for diseases, treatments, medications, and healthcare facilities (e.g., *vårdcentral*, *Ring 1177*, *112*) in parentheses next to the English translations.
-* **Healthcare Escalation Fidelity:** Never omit or dilute instructions regarding when to seek professional medical care.
+## 🛠️ Skill 3: `1177-pediatric-skill`
+**Purpose:** Pediatric medical advisory focusing on children's health (infants to under 12).
+* **SSOT:** Strictly `1177.se` and `Livsmedelsverket` (for children's diet/nutrition).
+* **Execution:** Emphasizes age-specific symptom matrices and explicit dosage warnings for over-the-counter medicine. Strict escalation paths including BVC (Barnavårdscentral).
 
-### Mandatory Output Structure:
-Whenever answering a medical query or evaluating symptoms, the agent MUST format the response using the following explicit headers:
-1. **Symptoms (Symtom):** Outline the common signs and symptoms as described by 1177.se.
-2. **Self-care (Egenvård):** List recommended home treatments, over-the-counter medications, and actions the user can take themselves.
-3. **When to seek care (När och var ska jag söka vård):** **[CRITICAL DIRECTIVE]** The agent must always surface strict escalation criteria. It must clearly define:
-   * When the user should wait.
-   * When to contact a health center (*vårdcentral*).
-   * When to call the medical advisory line (*Ring 1177*).
-   * When to call emergency services (*112*) for acute emergencies.
+## 🛠️ Skill 4: `1177-mental-health-skill`
+**Purpose:** Psychiatric and mental health support advisory.
+* **SSOT:** Strictly `1177.se`.
+* **Execution:** Always prioritizes safety, assuming highest risk until mitigated. Must prominently feature crisis contacts (e.g., 112, Mind Självmordslinjen 90101, psykiatrisk akutmottagning) in the escalation block.
+
+## 🛠️ Skill 5: `1177-diabetes-skill`
+**Purpose:** Chronic condition management for diabetes.
+* **SSOT:** Strictly `1177.se` (medical) and `Livsmedelsverket` (dietary).
+* **Execution:** Focuses on holistic management. Structured output includes Symptoms/Impact, Dietary/Lifestyle Adjustments, and Routine Care/Escalation (including tracking metrics like blodsocker/HbA1c).
+
+## 🛠️ Skill 6: `1177-vaccine-skill`
+**Purpose:** Preventative and travel health advisory for vaccines.
+* **SSOT:** Strictly `1177.se` (incorporating Folkhälsomyndigheten guidelines found there).
+* **Execution:** Structures output by Vaccine Purpose, Schedule & Doses (e.g., allmänna vaccinationsprogrammet), Side Effects, and Escalation for adverse reactions.
 
 ---
 
