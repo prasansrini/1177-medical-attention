@@ -1,3 +1,7 @@
+---
+name: 1177-advisory-skill
+description: Generic medical advisory using 1177.se as the single source of truth. Use when the user asks for medical advice, symptom information, or health guidance in Sweden.
+---
 # 1177.se Medical Advisor
 
 ## Purpose
