@@ -1,7 +1,14 @@
 ---
 name: 1177-advisory-skill
 description: Generic medical advisory using 1177.se as the single source of truth. Use when the user asks for medical advice, symptom information, or health guidance in Sweden.
+version: 1.0.0
+author: Prasanna
+metadata:
+  hermes:
+    tags: ["pregnancy", "nutrition"]
+    related_skills: []
 ---
+
 # 1177.se Medical Advisor
 
 ## Purpose
