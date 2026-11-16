@@ -1,3 +1,13 @@
+---
+name: 1177-preg-skill
+description: SSOT 1177 for pregnancy.
+version: 1.0.0
+author: Prasanna
+metadata:
+  hermes:
+    tags: ["pregnancy", "nutrition"]
+    related_skills: []
+---
 # Skill: 1177.se and Livsmedelsverket Pregnancy Single-Source-of-Truth (SSOT) Advisor & Analyst
 
 ## Purpose
